@@ -1,0 +1,50 @@
+.wrap ng-app="Allperk" ng-controller="DemoController"
+  .sidebar
+    h1.logo AllPerk
+    h4 because we believe:
+    h4 You Deserve Better
+
+    .employer-form
+      .alert.alert-info.alert-dismissable ng-if="response"
+        | Thanks! We have received your request.
+      .white-background
+        label.full-width
+          span Full Name
+          input name="company" type="text" placeholder="Juan Cruz" ng-model="demo_request.full_name"
+        label.full-width
+          span Company
+          input name="company" type="text" placeholder="Muber Inc." ng-model="demo_request.company"
+        label.border-right
+          span Email Address
+          input name="email" type="email" placeholder="" ng-model="demo_request.email"
+        label
+          span Phone Number
+          input name="telephone" type="tel" placeholder="" ng-model="demo_request.phone"
+        label.full-width
+          span HR Contact (Optional)
+          input name="telephone" type="tel" placeholder="" ng-model="demo_request.hr"
+        label.full-width
+          span Fave Perk
+          input name="telephone" type="tel" placeholder="Perk you would wish to have" ng-model="demo_request.hr"
+        button type="submit" class="solid-btn" ng-click="request_demo(demo_request)"
+          |Request Demo
+
+  .content
+    .title
+      h2
+        | Be More
+        span Productive
+        | at Work
+      p Get Exclusive Employee Perks in Fitness, Food, Phone bills, and more
+    .subhead
+      .head
+        hr
+        p Save up to 25% on brand names like
+        hr
+      div.animate-show ng-show="image1"
+        =image_tag "logo-1.png"
+      div.animate-show ng-show="image2"
+        =image_tag "logo-2.png"
+      .sliders
+        .carousel-circle ng-click="moveTo(circle)" ng-repeat="circle in circles"
+          div ng-class="{insidecircle: currentIndex ===$index}"

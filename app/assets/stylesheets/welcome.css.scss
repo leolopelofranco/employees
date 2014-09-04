@@ -1,0 +1,243 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@import 'compass/css3';
+
+$base-font: "Bariol", sans-serif;
+$logo-font: "Raleway", sans-serif;
+
+body {
+  font-family: $base-font !important;
+}
+
+.logo {
+  font-family: $logo-font;
+}
+
+
+.content, .content:before {
+    width:65%;
+}
+.content {
+    float:left;
+    color: #6d7072;
+    padding: 0 40px;
+}
+.content:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    left: 35%;
+    background: 100% 10% no-repeat;
+    background-image: image-url("background.jpg");
+}
+
+.sidebar, .sidebar:before {
+    width:35%;
+}
+.sidebar {
+    float:left;
+    font-size: 90%;
+    padding: 0 40px;
+
+    h1 {
+      color: #0e242e;
+      font-size: 55px;
+      margin: 70px 0 50px 0;
+    }
+
+    h4 {
+      font-weight:400;
+      font-size:14px;
+    }
+}
+.sidebar:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    left: 0;
+    background-color: #fff;
+}
+
+.title {
+  text-align: center;
+  color: #fff;
+
+  h2 {
+    margin-top: 80px;
+  }
+
+  span {
+    color: #efb948;
+    font-style: italic;
+    margin: 0 5px;
+
+  }
+}
+
+.subhead {
+  padding-top:200px;
+
+  hr {
+    margin-top: 10px;
+    border-top: 1px dotted;
+    width: 30%;
+    float: left;
+  }
+  p {
+    width: 40%;
+    float:left;
+    text-align:center;
+    color: #fff;
+  }
+
+  img {
+    width: 85%;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.sliders {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.carousel-circle {
+  border-radius: 100%;
+  width: 15px;
+  background-color: transparent;
+  height: 14px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  display:inline-block;
+  margin: 0 2px;
+  position:relative;
+}
+
+.insidecircle {
+  border-radius: 100%;
+  width: 7px;
+  background-color: #fff;
+  height: 7px;
+  position: absolute;
+  top: 22%;
+  left: 24%;
+}
+
+// animations
+
+.animate-show.ng-enter,
+.animate-show.ng-leave {
+  position: relative;
+  @include transition(400ms cubic-bezier(.250, .250, .750, .750) all);
+}
+
+.animate-show.ng-enter.ng-enter-active,
+.animate-show.ng-leave {
+  height: 30px;
+  @include opacity(1);
+  top: 0;
+}
+
+.animate-show.ng-leave.ng-leave-active,
+.animate-show.ng-enter {
+  height: 0;
+  @include opacity(0);
+  top: -50px;
+}
+
+
+
+
+//form
+
+.employer-form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 420px;
+  border: 1px solid #eee;
+  margin-top: 40px;
+  .border-radius-form {
+    @include border-radius(3px);
+  }
+
+  .white-background {
+    @include border-radius(3px);
+  }
+
+  .full-width {
+    width: 100% !important;
+  }
+
+  .border-right {
+    border-right: 1px solid #eee;
+  }
+
+  .white-background {
+    opacity: .9;
+  }
+
+  label {
+    border-bottom: 1px solid #eee;
+    color: #95a0a5;
+    cursor: text;
+    display: inline-block;
+    margin-bottom: 0;
+    height: 55px;
+    width: 50%;
+  }
+
+  span {
+    color: #95a0a5;
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 7px 0 0 6px;
+    text-indent: 1px;
+    text-transform: uppercase;
+  }
+
+  input {
+    background: transparent;
+    border: 0;
+    color: #242a33;
+    font-size: 13px;
+    font-weight: 300;
+    margin: 6px 0 0 6px;
+    width: 95%;
+    outline: none;
+    line-height:normal;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .solid-btn {
+    @include border-radius(0 0 3px 3px);
+    background: #fc0;
+    border: 0;
+    border-bottom: 4px solid #f4b700;
+    color: #fdfdfd;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    height: 66px;
+    line-height: 66px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    text-shadow: 0 1px 1px #d6a000;
+    text-transform: uppercase;
+    width: 100%;
+  }
+}
