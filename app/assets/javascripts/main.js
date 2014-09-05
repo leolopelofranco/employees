@@ -1,7 +1,4 @@
-var Allperk = angular.module('Allperk', ["Allperk.services",
-                                         "ngAnimate"]);
-
-angular.module('Allperk.services', []);
+var Allperk = angular.module('Allperk', ["ngAnimate"]);
 
 Allperk.service('EmailService', function($http){
     this.api_key = "JaY-iWIIpOEo2cmdZBHmjA";
@@ -38,6 +35,7 @@ Allperk.controller('DemoController', function($scope, EmailService){
   $scope.demo_request = {};
   $scope.response = false;
   $scope.request_demo = function(demo_request) {
+    console.log(demo_request);
     EmailService.send_email(demo_request)
       .then(function(data){
         $scope.response = true;

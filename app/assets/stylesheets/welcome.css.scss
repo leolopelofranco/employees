@@ -18,7 +18,7 @@ body {
 
 
 .content, .content:before {
-    width:65%;
+    width:73%;
 }
 .content {
     float:left;
@@ -31,13 +31,13 @@ body {
     top: 0;
     bottom: 0;
     z-index: -1;
-    left: 35%;
+    left: 27%;
     background: 100% 10% no-repeat;
     background-image: image-url("background.jpg");
 }
 
 .sidebar, .sidebar:before {
-    width:35%;
+    width:27%;
 }
 .sidebar {
     float:left;
@@ -153,6 +153,7 @@ body {
   top: -50px;
 }
 
+.quotes {display: none;}
 
 
 

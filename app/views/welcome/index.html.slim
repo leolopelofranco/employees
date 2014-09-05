@@ -41,10 +41,30 @@
         hr
         p Save up to 25% on brand names like
         hr
-      div.animate-show ng-show="image1"
+      div.animate-show.quotes ng-show="image1"
         =image_tag "logo-1.png"
-      div.animate-show ng-show="image2"
+      div.animate-show.quotes ng-show="image2"
         =image_tag "logo-2.png"
       .sliders
         .carousel-circle ng-click="moveTo(circle)" ng-repeat="circle in circles"
           div ng-class="{insidecircle: currentIndex ===$index}"
+
+
+
+javascript:
+  (function() {
+
+    var quotes = $(".quotes");
+    var quoteIndex = -1;
+
+    function showNextQuote() {
+        ++quoteIndex;
+        quotes.eq(quoteIndex % quotes.length)
+            .fadeIn(500)
+            .delay(500)
+            .fadeOut(500, showNextQuote);
+    }
+
+    showNextQuote();
+
+  })();
