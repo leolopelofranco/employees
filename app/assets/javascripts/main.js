@@ -1,4 +1,5 @@
-var Allperk = angular.module('Allperk', ["ngAnimate"]);
+var Allperk = angular.module('Allperk', ["ngAnimate",
+                                        "ngDialog"]);
 
 Allperk.service('EmailService', function($http){
     this.api_key = "JaY-iWIIpOEo2cmdZBHmjA";
@@ -31,14 +32,21 @@ Allperk.service('EmailService', function($http){
   });
 
 
-Allperk.controller('DemoController', function($scope, EmailService){
+Allperk.controller('DemoController', function($scope, EmailService, ngDialog) {
   $scope.demo_request = {};
   $scope.response = false;
   $scope.request_demo = function(demo_request) {
-    console.log(demo_request);
+
     EmailService.send_email(demo_request)
       .then(function(data){
         $scope.response = true;
+
+        ngDialog.open({
+          template: 'success',
+          className: 'ngdialog-theme-default'
+        });
+
+
       });
   };
 
@@ -61,4 +69,5 @@ Allperk.controller('DemoController', function($scope, EmailService){
       $scope.image2 = true;
     }
   }
+
 });

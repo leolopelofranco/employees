@@ -1,12 +1,21 @@
-.wrap ng-app="Allperk" ng-controller="DemoController"
+script type="text/ng-template" id="success"
+
+  .popup
+    =image_tag "high.gif"
+    h3
+      strong High Fives!
+    p Share to your co-workers & get P100 instantly to your account once we become live.
+  .foot
+    i.fa.fa-facebook.facebook
+    i.fa.fa-twitter.twitter
+    i.fa.fa-linkedin.linkedin
+.wrap ng-controller="DemoController"
   .sidebar
     h1.logo AllPerk
     h4 because we believe:
     h4 You Deserve Better
 
     .employer-form
-      .alert.alert-info.alert-dismissable ng-if="response"
-        | Thanks! We have received your request.
       .white-background
         label.full-width
           span Full Name

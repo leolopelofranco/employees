@@ -15,6 +15,7 @@
 //= require angular
 //= require angular-cookies
 //= require angular-animate.min
+//= require ngDialog
 
 
 //= require jquery
