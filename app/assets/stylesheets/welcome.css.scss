@@ -39,6 +39,7 @@ body {
 .sidebar, .sidebar:before {
     width:27%;
 }
+
 .sidebar {
     float:left;
     font-size: 90%;
@@ -232,13 +233,70 @@ body {
     display: block;
     font-size: 14px;
     font-weight: 700;
-    height: 66px;
-    line-height: 66px;
+    height: 55px;
+    line-height: 55px;
     margin: 0 auto;
     padding: 0;
     text-align: center;
     text-shadow: 0 1px 1px #d6a000;
     text-transform: uppercase;
     width: 100%;
+  }
+}
+
+.foot {
+  text-align: center;
+  padding: 10px 0;
+
+  i {
+    border-radius: 100%;
+    width: 50px;
+    border: 1px solid;
+    height: 50px;
+    font-size: 24px;
+    padding: 12px 10px;
+    margin: 10px;
+    cursor: pointer;
+
+  }
+
+  .facebook {
+    border-color: #3d5b97;
+    color: #3d5b97;
+
+    &:hover {
+      background-color: #3d5b97;
+      color: #fff;
+    }
+  }
+  .twitter {
+    border-color: #32ccfe;
+    color: #32ccfe;
+
+    &:hover {
+      background-color: #32ccfe;
+      color: #fff;
+    }
+  }
+  .linkedin {
+    border-color: #006599;
+    color: #006599;
+
+    &:hover {
+      background-color: #006599;
+      color: #fff;
+    }
+  }
+}
+.popup {
+  text-align: center;
+  padding: 15px;
+  p {
+    font-size: 17px;
+    font-family: $base-font;
+  }
+
+  img {
+    width:100%;
   }
 }
