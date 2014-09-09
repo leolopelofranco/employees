@@ -49,7 +49,6 @@ Allperk.controller('DemoController', function($scope, EmailService, ngDialog) {
     $scope.submitted = true;
 
     if (demo_request) {
-      console.log("hello");
       EmailService.send_email(demo_request)
         .then(function(data){
 
