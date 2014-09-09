@@ -35,39 +35,39 @@ Allperk.service('EmailService', function($http){
 Allperk.controller('DemoController', function($scope, EmailService, ngDialog) {
   $scope.demo_request = {};
   $scope.response = false;
-  $scope.request_demo = function(demo_request) {
-
-    EmailService.send_email(demo_request)
-      .then(function(data){
-        $scope.response = true;
-
-        ngDialog.open({
-          template: 'success',
-          className: 'ngdialog-theme-default'
-        });
-
-
-      });
+  $scope.placeholder = {
+    name: "Juan Cruz",
+    company: "Allperk Inc",
+    email: "juan@company.com",
+    telephone: "",
+    contact: "Joe, joe@company.com",
+    perk: "Perk you would wish to have"
   };
 
-  $scope.pics = ["https://dl.dropboxusercontent.com/u/24038622/employees/logo-1.png","https://dl.dropboxusercontent.com/u/24038622/employees/logo-2.png"];
-  $scope.circles = [0,1];
+  $scope.request_demo = function(demo_request) {
 
-  $scope.image1= true;
-  $scope.image2= false;
-  $scope.currentIndex= 0;
+    $scope.submitted = true;
 
-  $scope.moveTo = function(index) {
-    if(index===0) {
-      $scope.currentIndex = 0;
-      $scope.image1 = true;
-      $scope.image2 = false;
+    if (demo_request) {
+      console.log("hello");
+      EmailService.send_email(demo_request)
+        .then(function(data){
+
+
+          ngDialog.open({
+            template: 'success',
+            className: 'ngdialog-theme-default'
+          });
+        });
     }
     else {
-      $scope.currentIndex = 1;
-      $scope.image1 = false;
-      $scope.image2 = true;
+
+      $('.employee-form').addClass('shake animated')
+                       .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+                          function(){
+                            $(this).removeClass('shake animated');
+                          });
     }
-  }
+  };
 
 });

@@ -96,6 +96,7 @@ body {
     float:left;
     text-align:center;
     color: #fff;
+    font-size: 19px;
   }
 
   img {
@@ -104,63 +105,68 @@ body {
     display: block;
   }
 }
-
-.sliders {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.carousel-circle {
-  border-radius: 100%;
-  width: 15px;
-  background-color: transparent;
-  height: 14px;
-  border: 1px solid #fff;
-  cursor: pointer;
-  display:inline-block;
-  margin: 0 2px;
-  position:relative;
-}
-
-.insidecircle {
-  border-radius: 100%;
-  width: 7px;
-  background-color: #fff;
-  height: 7px;
-  position: absolute;
-  top: 22%;
-  left: 24%;
-}
-
-// animations
-
-.animate-show.ng-enter,
-.animate-show.ng-leave {
-  position: relative;
-  @include transition(400ms cubic-bezier(.250, .250, .750, .750) all);
-}
-
-.animate-show.ng-enter.ng-enter-active,
-.animate-show.ng-leave {
-  height: 30px;
-  @include opacity(1);
-  top: 0;
-}
-
-.animate-show.ng-leave.ng-leave-active,
-.animate-show.ng-enter {
-  height: 0;
-  @include opacity(0);
-  top: -50px;
-}
-
 .quotes {display: none;}
 
+// error
 
+.error-now {
+  border: 1px solid red;
+  border-bottom: 1px solid red !important;
+}
 
+// Animate
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    -ms-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    -ms-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+.shake {
+  -webkit-animation-name: shake;
+  animation-name: shake;
+}
 //form
 
-.employer-form {
+.employee-form {
   display: block;
   margin-left: auto;
   margin-right: auto;
