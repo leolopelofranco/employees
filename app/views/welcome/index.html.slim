@@ -13,50 +13,56 @@ script type="text/ng-template" id="success"
   .sidebar
     h1.logo AllPerk
     h4 because we believe:
-    h4 You Deserve Better
+    h4
+      strong You Deserve Better
 
-    .employer-form
+    form.employee-form name="userForm" ng-submit="request_demo(userForm.$valid)" novalidate=""
       .white-background
-        label.full-width
+
+        label.full-width ng-class="{ 'error-now' : userForm.name.$invalid && submitted }"
           span Full Name
-          input name="company" type="text" placeholder="Juan Cruz" ng-model="demo_request.full_name"
+          input name="name" type="text" placeholder="{{placeholder.name}}" ng-model="demo_request.full_name" required=""
+
+
+        label.full-width ng-class="{ 'error-now' : userForm.company.$invalid && submitted }"
+          span
+            | Company
+          input name="company" type="text" placeholder="{{placeholder.company}}" ng-model="demo_request.company" required=""
+
+
+        label.border-right ng-class="{ 'error-now' : userForm.email.$invalid && submitted }"
+          span Work Email
+          input name="email" type="email" placeholder="{{placeholder.email}}" ng-model="demo_request.email" required=""
+
+
+        label ng-class="{ 'error-now shake' : userForm.telephone.$invalid && submitted }"
+          span Mobile Number
+          input name="telephone" type="tel" placeholder="{{placeholder.telephone}}" ng-model="demo_request.phone" required=""
+
         label.full-width
-          span Company
-          input name="company" type="text" placeholder="Muber Inc." ng-model="demo_request.company"
-        label.border-right
-          span Email Address
-          input name="email" type="email" placeholder="" ng-model="demo_request.email"
-        label
-          span Phone Number
-          input name="telephone" type="tel" placeholder="" ng-model="demo_request.phone"
-        label.full-width
-          span HR Contact (Optional)
-          input name="telephone" type="tel" placeholder="" ng-model="demo_request.hr"
+          span HR Contact & Email (Optional)
+          input name="contact" type="text" placeholder="{{placeholder.contact}}" ng-model="demo_request.hr"
         label.full-width
           span Fave Perk
-          input name="telephone" type="tel" placeholder="Perk you would wish to have" ng-model="demo_request.hr"
-        button type="submit" class="solid-btn" ng-click="request_demo(demo_request)"
-          |Request Demo
+          input name="perk" type="text" placeholder="{{placeholder.perk}}" ng-model="demo_request.perk"
+        button.solid-btn type="submit"
+          | Request Demo
 
   .content
     .title
       h2
-        | Be More
-        span Productive
-        | at Work
+        span Enjoy
+        | your Work more
       p Get Exclusive Employee Perks in Fitness, Food, Phone bills, and more
     .subhead
       .head
         hr
         p Save up to 25% on brand names like
         hr
-      div.animate-show.quotes ng-show="image1"
+      div.animate-show.quotes
         =image_tag "logo-1.png"
-      div.animate-show.quotes ng-show="image2"
+      div.animate-show.quotes
         =image_tag "logo-2.png"
-      .sliders
-        .carousel-circle ng-click="moveTo(circle)" ng-repeat="circle in circles"
-          div ng-class="{insidecircle: currentIndex ===$index}"
 
 
 
@@ -67,11 +73,11 @@ javascript:
     var quoteIndex = -1;
 
     function showNextQuote() {
-        ++quoteIndex;
-        quotes.eq(quoteIndex % quotes.length)
-            .fadeIn(500)
-            .delay(500)
-            .fadeOut(500, showNextQuote);
+      ++quoteIndex;
+      quotes.eq(quoteIndex % quotes.length)
+          .fadeIn(800)
+          .delay(800)
+          .fadeOut(800, showNextQuote);
     }
 
     showNextQuote();
